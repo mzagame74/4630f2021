@@ -1,0 +1,30 @@
+1. Based on the reports in our last class, it seems that most people are looking
+for an app that can improve upon either existing apps or provide a more
+streamlined experience in a certain app category. For example, an app that can
+find information on a product that you own more easily, such as the components
+of a vehicle. Another example was for a productivity app that can log
+individual team member's work in a way that is hassle free and convenient for
+the entire team. My main takeaway from our discussion is that it is quite
+difficult to come up with an entirely original app idea that has not already
+been done in some way before. My idea so far has been to create an app that will
+help people manage and save their money in a way that is simple and fun. In
+addition, a payments platform could also be built on top of this. Of course
+this type of financial tech already exists under a few different names, however
+there is still room for innovation in my eyes. 
+
+2. I believe the best way to handle this problem is to offer a free base version
+of an app, and if a user wants access to advanced features or other perks, they
+can support the developer by purchasing a premium service. If the app were to
+involve a payments system, a small fee could be allocated out of each
+transaction to go towards development instead. Either way, a large majority of
+features in the app should be free with no obtrusive ads.
+
+3. https://mint.intuit.com/
+Mint is a user-friendly budgetting app that has a nice thematic look and simple
+yet effective UI. Key information is presented foremost and menus are pretty
+easy to navigate.
+
+4. I would say that our discussion has shed some light on the type of app I
+should be creating. For now, I am going to stick to the idea of creating an app
+that in its most basic form shall inform the user as to how they are managing
+their money, and then go from there.
