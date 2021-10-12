@@ -1,4 +1,4 @@
-Tutoring App Project by Matt Zagame and Wilbert
+Tutoring App Project by Matt Zagame and Wilbert De la Rosa
 
 This app aims to facilitate the tutoring process for college students by allowing them to readily schedule in-person meetings with verified tutors, based on the school they attend. Tutors can also register on the app to make the tutoring process easier.
 
