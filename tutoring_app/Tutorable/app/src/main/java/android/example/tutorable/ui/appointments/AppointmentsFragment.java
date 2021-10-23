@@ -1,4 +1,4 @@
-package android.example.tutorable.ui.notifications;
+package android.example.tutorable.ui.appointments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.example.tutorable.R;
-import android.example.tutorable.databinding.FragmentNotificationsBinding;
+import android.example.tutorable.databinding.FragmentAppointmentsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class AppointmentsFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private AppointmentsViewModel appointmentsViewModel;
+    private FragmentAppointmentsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        appointmentsViewModel =
+                new ViewModelProvider(this).get(AppointmentsViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textAppointments;
+        appointmentsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
