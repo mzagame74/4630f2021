@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">My First App</string>
+    <string name="author">By Matt Zagame</string>
+    <string name="next_page">Next</string>
+    <string name="previous_page">Previous</string>
+    <string name="image_description">Selfie</string>
+    <string name="about_title">About Me</string>
+    <string name="about_paragraph">Welcome to my first app! My name is Matt and
+        I am pursuing a degree in Computer Science at UMass Lowell. I was
+        born in Natick, Massachusetts and currently live in Lowell,
+        Massachusetts This app marks the beginning of my journey to create
+        truly innovative and unique apps using Android Studio. Thanks for
+        trying my app!</string>
+    <string name="weather_title">The Weather</string>
+    <string name="weather_paragraph">Today\'s Weather: Sunny</string>
+    <string name="from_location">I am from Natick, Massachusetts</string>
+    <string name="current_location">I am currently: </string>
+    <string name="investments_title">My Investment Portfolio</string>
+    <string name="investments_item_1">$AAPL - $150</string>
+    <string name="investments_item_2">$MSFT - $334</string>
+    <string name="investments_item_3">$BTC - $60000</string>
+    <string name="resume_title">My Resume</string>
+    <string name="upload_resume_text">Upload Resume (Demo):</string>
+    <string name="browse_files_button_text">Browse</string>
+    <string name="popup_button_text">Click Me!</string>
+    <string name="popup_paragraph">This is a popup!</string>
+
+</resources>
