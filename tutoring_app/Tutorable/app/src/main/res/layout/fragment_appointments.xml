@@ -19,4 +19,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--TODO: remove location testing text when ready-->
+    <TextView
+        android:id="@+id/latTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitude will be here! "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_appointments" />
+
+    <TextView
+        android:id="@+id/lonTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Longitude will be here! "
+        app:layout_constraintTop_toBottomOf="@+id/latTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
