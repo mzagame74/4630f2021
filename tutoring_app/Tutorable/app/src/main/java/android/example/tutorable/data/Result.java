@@ -5,7 +5,24 @@ package android.example.tutorable.data;
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)
+<<<<<<< HEAD
     private Result() {}
+=======
+    private Result() {
+    }
+
+    @Override
+    public String toString() {
+        if (this instanceof Result.Success) {
+            Success success = (Success) this;
+            return "Success[data=" + success.getData().toString() + "]";
+        } else if (this instanceof Result.Error) {
+            Error error = (Error) this;
+            return "Error[exception=" + error.getError().toString() + "]";
+        }
+        return "";
+    }
+>>>>>>> 1ea338a4978998eba5401779587082c4fe27f1ba
 
     // Success sub-class
     public final static class Success<T> extends Result {
@@ -32,6 +49,7 @@ public class Result<T> {
             return this.error;
         }
     }
+<<<<<<< HEAD
 
     @Override
     public String toString() {
@@ -44,4 +62,6 @@ public class Result<T> {
         }
         return "";
     }
+=======
+>>>>>>> 1ea338a4978998eba5401779587082c4fe27f1ba
 }
