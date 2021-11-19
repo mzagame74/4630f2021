@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View root = binding.getRoot();
 
         lookForAppointmentsButton =
-                (Button)root.findViewById(R.id.button_look_for_tutors);
+                (Button) root.findViewById(R.id.button_look_for_tutors);
         lookForAppointmentsButton.setOnClickListener(this);
 
         //final TextView textView = binding.textHome;
@@ -61,7 +61,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     public void replaceFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction =
+                getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.nav_host_fragment_activity_main, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
