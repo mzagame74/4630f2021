@@ -21,4 +21,7 @@
     <string name="header_welcome">Welcome</string>
     <string name="button_look_for_tutors">Look For Tutors</string>
     <string name="header_your_appointments">Your Appointments</string>
+    <string name="header_subject">Subject</string>
+    <string name="header_course">Course</string>
+    <string name="header_timeslots">Available Sessions</string>
 </resources>

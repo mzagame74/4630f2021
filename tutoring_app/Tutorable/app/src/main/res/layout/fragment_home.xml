@@ -45,7 +45,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/your_appointments"
+                android:id="@+id/header_your_appointments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/header_your_appointments"
