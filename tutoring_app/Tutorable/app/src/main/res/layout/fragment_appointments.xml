@@ -7,35 +7,102 @@
     tools:context=".ui.appointments.AppointmentsFragment">
 
     <TextView
-        android:id="@+id/text_appointments"
+        android:id="@+id/header_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="12dp"
+        android:text="@string/header_appointments"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/header_subject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <!--TODO: remove location testing text when ready-->
     <TextView
-        android:id="@+id/latTextView"
-        android:layout_width="match_parent"
+        android:id="@+id/header_subject"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Latitude will be here! "
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:labelFor="@+id/spinner_subject"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="12dp"
+        android:text="@string/spinner_subject"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_subject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_appointments" />
+        app:layout_constraintTop_toBottomOf="@id/header_welcome" />
+
+    <Spinner
+        android:id="@+id/spinner_subject"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/header_course"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_subject" />
 
     <TextView
-        android:id="@+id/lonTextView"
+        android:id="@+id/header_course"
+        android:labelFor="@+id/spinner_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Longitude will be here! "
-        app:layout_constraintTop_toBottomOf="@+id/latTextView" />
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="12dp"
+        android:text="@string/spinner_course"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_course"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner_subject" />
+
+    <Spinner
+        android:id="@+id/spinner_course"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/scrollview_timeslots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_course" />
+
+    <ScrollView
+        android:id="@+id/scrollview_timeslots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:minHeight="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_course"
+        app:layout_constrainedHeight="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/header_timeslots"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/header_timeslots"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
