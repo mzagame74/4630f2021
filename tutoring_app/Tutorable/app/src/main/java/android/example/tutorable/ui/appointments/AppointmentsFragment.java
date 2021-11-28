@@ -58,8 +58,9 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
-        //latTextView = root.findViewById(R.id.latTextView);
-        //lonTextView = root.findViewById(R.id.lonTextView);
+        // TODO: remove location testing text when ready
+        latTextView = root.findViewById(R.id.latTextView);
+        lonTextView = root.findViewById(R.id.lonTextView);
 
         // initialize location provider client
         fusedLocationProviderClient =

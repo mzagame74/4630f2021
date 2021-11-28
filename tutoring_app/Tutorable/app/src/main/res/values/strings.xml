@@ -20,7 +20,7 @@
     <string name="button_look_for_tutors">Look For Tutors</string>
     <string name="header_your_appointments">Your Appointments</string>
 
-    <string name="header_appointments">Appointments</string>
+    <string name="header_appointments">Find a Session</string>
     <string name="spinner_subject">Subject:</string>
     <string name="spinner_course">Course:</string>
     <string name="header_timeslots">Available Sessions</string>
