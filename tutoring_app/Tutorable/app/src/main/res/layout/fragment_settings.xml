@@ -39,6 +39,7 @@
         android:autofillHints="name"
         android:hint="@string/prompt_name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/email"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +57,7 @@
         android:autofillHints="emailAddress"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@id/header_school"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,7 +92,8 @@
         app:layout_constraintBottom_toTopOf="@id/button_change_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_school" />
+        app:layout_constraintTop_toBottomOf="@id/header_school"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/button_change_password"
