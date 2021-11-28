@@ -50,17 +50,16 @@ public class AppointmentsFragment extends Fragment {
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAppointments;
+        //final TextView textView = binding.textAppointments;
         appointmentsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                //textView.setText(s);
             }
         });
 
-        // TODO: remove location testing text when ready
-        latTextView = root.findViewById(R.id.latTextView);
-        lonTextView = root.findViewById(R.id.lonTextView);
+        //latTextView = root.findViewById(R.id.latTextView);
+        //lonTextView = root.findViewById(R.id.lonTextView);
 
         // initialize location provider client
         fusedLocationProviderClient =
