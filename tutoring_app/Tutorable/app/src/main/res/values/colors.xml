@@ -6,5 +6,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FCF6F5FF</color>
+    <color name="sky_blue">#87CEEB</color>
+    <color name="sky_blue_variant">#48B4E0</color>
+    <color name="pink_lady">#EDC2D8</color>
+    <color name="silver_sand">#BFC1C2</color>
 </resources>

@@ -50,11 +50,11 @@ public class AppointmentsFragment extends Fragment {
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textAppointments;
+        //final TextView textView = binding.textAppointments;
         appointmentsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+                //textView.setText(s);
             }
         });
 
