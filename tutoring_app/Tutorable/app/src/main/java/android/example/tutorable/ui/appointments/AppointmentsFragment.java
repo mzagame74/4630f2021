@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.tutorable.R;
+import android.example.tutorable.data.Appointment;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -14,13 +15,14 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.example.tutorable.databinding.FragmentAppointmentsBinding;
@@ -34,11 +36,12 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class AppointmentsFragment extends Fragment {
+public class AppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private AppointmentsViewModel appointmentsViewModel;
     private FragmentAppointmentsBinding binding;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private Spinner subjectSpinner, courseSpinner;
     private TextView latTextView, lonTextView;
     public static final int PERMISSION_ID = 100;
 
@@ -50,13 +53,19 @@ public class AppointmentsFragment extends Fragment {
         binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //final TextView textView = binding.textAppointments;
-        appointmentsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                //textView.setText(s);
-            }
-        });
+        subjectSpinner = (Spinner) root.findViewById(R.id.spinner_subject);
+        courseSpinner = (Spinner) root.findViewById(R.id.spinner_course);
+
+        // create an ArrayAdapter for the subject spinner using the string
+        // array and a default spinner layout
+        ArrayAdapter<CharSequence> subjectAdapter =
+                ArrayAdapter.createFromResource(getActivity(), R.array.subject_array,
+                        android.R.layout.simple_spinner_item);
+        // specify the layout to use when the list of choices appears
+        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // apply the adapter and item listener to the spinner
+        subjectSpinner.setAdapter(subjectAdapter);
+        subjectSpinner.setOnItemSelectedListener(this);
 
         // TODO: remove location testing text when ready
         latTextView = root.findViewById(R.id.latTextView);
@@ -86,6 +95,28 @@ public class AppointmentsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch((String) parent.getItemAtPosition(position)) {
+            case "Math":
+                // TODO: modify the available courses based on selection
+                break;
+            case "English":
+                break;
+            case "Electrical Engineering":
+                break;
+            case "Computer Science":
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     @Override

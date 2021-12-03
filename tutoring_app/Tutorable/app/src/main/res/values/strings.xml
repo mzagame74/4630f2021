@@ -25,6 +25,36 @@
     <string name="spinner_course">Course:</string>
     <string name="header_timeslots">Available Sessions</string>
 
+    <string-array name="subject_array">
+        <item>Math</item>
+        <item>English</item>
+        <item>Electrical Engineering</item>
+        <item>Computer Science</item>
+    </string-array>
+
+    <string-array name="math_course_array">
+        <item>Calculus I</item>
+        <item>Calculus II</item>
+        <item>Discrete Structures I</item>
+    </string-array>
+
+    <string-array name="engl_course_array">
+        <item>College Writing I</item>
+        <item>College Writing II</item>
+    </string-array>
+
+    <string-array name="eece_course_array">
+        <item>Circuit Theory I</item>
+        <item>Circuit Theory II</item>
+        <item>Logic Design</item>
+    </string-array>
+
+    <string-array name="comp_course_array">
+        <item>Computing I</item>
+        <item>Computing II</item>
+        <item>Computer Architecture</item>
+    </string-array>
+
     <string name="header_settings">Settings</string>
     <string name="header_user_info">User Information:</string>
     <string name="spinner_school">School:</string>

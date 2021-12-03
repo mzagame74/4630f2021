@@ -1,5 +1,9 @@
-/* replaceFragment code provided by:
-https://stackoverflow.com/questions/32700818/how-to-open-a-fragment-on-button-click-from-a-fragment-in-android */
+/*
+* Tutorable Copyright 2021
+* HomeFragment.java sets up the view for the home screen fragment
+* replaceFragment code provided by:
+* https://stackoverflow.com/questions/32700818/how-to-open-a-fragment-on-button-click-from-a-fragment-in-android
+*/
 package android.example.tutorable.ui.home;
 
 import android.example.tutorable.ui.appointments.AppointmentsFragment;
