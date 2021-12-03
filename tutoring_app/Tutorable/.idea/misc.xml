@@ -20,7 +20,10 @@
         <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.11546184738955824" />
         <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/activity_main.xml" value="0.18177083333333333" />
+        <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/activity_main_tutor_view.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/fragment_appointments.xml" value="0.29635416666666664" />
         <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/fragment_home.xml" value="0.144" />
+        <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/fragment_settings.xml" value="0.29635416666666664" />
         <entry key="..\:/Users/wilbe/Downloads/4630f2021/tutoring_app/Tutorable/app/src/main/res/layout/login_firstpage.xml" value="0.22083333333333333" />
       </map>
     </option>
