@@ -22,11 +22,7 @@ public class LoginRepository {
     }
 
     public static LoginRepository getInstance(LoginDataSource dataSource) {
-<<<<<<< HEAD
-        if(instance == null){
-=======
         if (instance == null) {
->>>>>>> 1ea338a4978998eba5401779587082c4fe27f1ba
             instance = new LoginRepository(dataSource);
         }
         return instance;
