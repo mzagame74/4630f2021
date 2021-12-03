@@ -13,30 +13,31 @@
     tools:context=".ui.login.LoginActivity">
 
     <ImageView
-
-        android:id="@+id/imageView"
+        android:id="@+id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
         android:src="@drawable/logo"
-        app:layout_constraintBaseline_toTopOf="@id/login"
+        android:contentDescription="@string/app_logo"
+        app:layout_constraintBottom_toTopOf="@id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
-        android:id="@+id/tutorText"
+        android:id="@+id/prompt_tutor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TUTOR?"
+        android:text="@string/prompt_tutor"
         android:textColor="@color/black"
         app:layout_constraintBaseline_toTopOf="@id/login"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -45,15 +46,13 @@
         <RadioButton android:id="@+id/yesBotton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="yes"
-            android:textColor="@color/black"
-            />
+            android:text="@string/radio_yes"
+            android:textColor="@color/black" />
         <RadioButton android:id="@+id/noBotton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="no"
-            />
+            android:text="@string/radio_no" />
     </RadioGroup>
 
 
@@ -78,31 +77,36 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:textColor="@color/black"
+        android:background="@drawable/login_edit"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:selectAllOnFocus="true"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
-        android:background="@drawable/login_edit"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@id/prompt_tutor"
+        android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/username"
-        android:textColor="@color/black"
+        android:id="@+id/email"
         android:layout_width="0dp"
-        android:background="@drawable/login_edit"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
+        android:background="@drawable/login_edit"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:selectAllOnFocus="true"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/app_logo"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        android:autofillHints="" />
 
     <ProgressBar
         android:id="@+id/loading"
