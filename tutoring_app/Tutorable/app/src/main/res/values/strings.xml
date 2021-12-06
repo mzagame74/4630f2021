@@ -60,4 +60,7 @@
     <string name="spinner_school">School:</string>
     <string name="button_save_settings">Save</string>
     <string name="button_change_password">Change Password</string>
+    <string name="app_logo">Tutorable</string>
+    <string name="radio_yes">yes</string>
+    <string name="radio_no">no</string>
 </resources>
