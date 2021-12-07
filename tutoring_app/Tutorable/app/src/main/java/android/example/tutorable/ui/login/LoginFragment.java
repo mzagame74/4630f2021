@@ -1,47 +1,48 @@
 package android.example.tutorable.ui.login;
 
-import android.app.Activity;
-
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.os.Bundle;
-
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.example.tutorable.databinding.FragmentLoginBinding;
 
 import android.example.tutorable.R;
-import android.example.tutorable.ui.login.LoginViewModel;
-import android.example.tutorable.ui.login.LoginViewModelFactory;
-import android.example.tutorable.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
-    private ActivityLoginBinding binding;
+    private FragmentLoginBinding binding;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -49,9 +50,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         final EditText passwordEditText = binding.password;
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
-        final Spinner schoolSpinner = binding.spinnerSchool;
 
-        loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
+        loginViewModel.getLoginFormState().observe(getViewLifecycleOwner(), new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
                 if (loginFormState == null) {
@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             }
         });
 
-        loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
+        loginViewModel.getLoginResult().observe(getViewLifecycleOwner(), new Observer<LoginResult>() {
             @Override
             public void onChanged(@Nullable LoginResult loginResult) {
                 if (loginResult == null) {
@@ -80,10 +80,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
                 }
-                setResult(Activity.RESULT_OK);
-
-                //Complete and destroy login activity once successful
-                finish();
             }
         });
 
@@ -126,39 +122,28 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                         passwordEditText.getText().toString());
             }
         });
-
-        // create an ArrayAdapter for the school spinner using the string
-        // array and a default spinner layout
-        ArrayAdapter<CharSequence> schoolAdapter =
-                ArrayAdapter.createFromResource(this, R.array.school_array,
-                        android.R.layout.simple_spinner_item);
-        // specify the layout to use when the list of choices appears
-        schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // apply the adapter and item listener to the spinner
-        schoolSpinner.setAdapter(schoolAdapter);
-        schoolSpinner.setOnItemSelectedListener(this);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
-        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        if (getContext() != null && getContext().getApplicationContext() != null) {
+            Toast.makeText(getContext().getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        }
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
-        Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch ((String) parent.getItemAtPosition(position)) {
-            case "UMass Lowell":
-                // TODO: store user information for selected school somewhere
+        if (getContext() != null && getContext().getApplicationContext() != null) {
+            Toast.makeText(
+                    getContext().getApplicationContext(),
+                    errorString,
+                    Toast.LENGTH_LONG).show();
         }
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

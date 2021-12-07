@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.example.tutorable.data.LoginRepository;
-import android.example.tutorable.data.Result;
 import android.util.Patterns;
 
+import android.example.tutorable.data.LoginRepository;
+import android.example.tutorable.data.Result;
 import android.example.tutorable.data.model.LoggedInUser;
 import android.example.tutorable.R;
 
