@@ -16,6 +16,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
+    <string-array name="school_array">
+        <item>UMass Lowell</item>
+    </string-array>
+
     <string name="header_welcome">Welcome</string>
     <string name="button_look_for_tutors">Look For Tutors</string>
     <string name="header_your_appointments">Your Appointments</string>
@@ -32,24 +36,15 @@
         <item>Computer Science</item>
     </string-array>
 
-    <string-array name="math_course_array">
+    <string-array name="course_array">
         <item>Calculus I</item>
         <item>Calculus II</item>
         <item>Discrete Structures I</item>
-    </string-array>
-
-    <string-array name="engl_course_array">
         <item>College Writing I</item>
         <item>College Writing II</item>
-    </string-array>
-
-    <string-array name="eece_course_array">
         <item>Circuit Theory I</item>
         <item>Circuit Theory II</item>
         <item>Logic Design</item>
-    </string-array>
-
-    <string-array name="comp_course_array">
         <item>Computing I</item>
         <item>Computing II</item>
         <item>Computer Architecture</item>

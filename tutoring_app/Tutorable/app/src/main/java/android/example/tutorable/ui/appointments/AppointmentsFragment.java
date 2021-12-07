@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.tutorable.R;
-import android.example.tutorable.data.Appointment;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -33,8 +32,6 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 
 public class AppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -61,11 +58,20 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
         ArrayAdapter<CharSequence> subjectAdapter =
                 ArrayAdapter.createFromResource(getActivity(), R.array.subject_array,
                         android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> courseAdapter =
+                ArrayAdapter.createFromResource(getActivity(),
+                        R.array.course_array,
+                        android.R.layout.simple_spinner_item);
+
         // specify the layout to use when the list of choices appears
         subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // apply the adapter and item listener to the spinner
+        courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // apply the adapter and item listener to the spinners
         subjectSpinner.setAdapter(subjectAdapter);
         subjectSpinner.setOnItemSelectedListener(this);
+        courseSpinner.setAdapter(courseAdapter);
+        courseSpinner.setOnItemSelectedListener(this);
 
         // TODO: remove location testing text when ready
         latTextView = root.findViewById(R.id.latTextView);
@@ -73,12 +79,12 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
 
         // initialize location provider client
         fusedLocationProviderClient =
-                LocationServices.getFusedLocationProviderClient(getActivity());
+                LocationServices.getFusedLocationProviderClient(requireActivity());
 
         // check for location permissions
-        if (ContextCompat.checkSelfPermission(getActivity(),
+        if (ContextCompat.checkSelfPermission(requireActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(getActivity(),
+                && ContextCompat.checkSelfPermission(requireActivity(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             // permission granted
             getCurrentLocation();
@@ -99,19 +105,8 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch((String) parent.getItemAtPosition(position)) {
-            case "Math":
-                // TODO: modify the available courses based on selection
-                break;
-            case "English":
-                break;
-            case "Electrical Engineering":
-                break;
-            case "Computer Science":
-                break;
-            default:
-                break;
-        }
+        // TODO: implement Java code to display available tutoring sessions
+        //  based on selection
     }
 
     @Override
@@ -146,40 +141,37 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
         if (locationManger.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManger.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             fusedLocationProviderClient.getLastLocation().addOnCompleteListener(
-                    new OnCompleteListener<Location>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Location> task) {
-                            // initialize location
-                            Location location = task.getResult();
-                            // make sure last location is not null
-                            if (location != null) {
-                                // do something with location
-                                latTextView.setText(String.valueOf(location.getLatitude()));
-                                lonTextView.setText(String.valueOf(location.getLongitude()));
-                            } else {
-                                // initialize location request
-                                LocationRequest locationRequest = new LocationRequest()
-                                        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                                        .setInterval(10000)
-                                        .setFastestInterval(1000)
-                                        .setNumUpdates(1);
-                                // initialize location call back
-                                LocationCallback locationCallback =
-                                        new LocationCallback() {
-                                            @Override
-                                            public void onLocationResult(
-                                                    @NonNull LocationResult locationResult) {
-                                                // initialize location
-                                                Location location =
-                                                        locationResult.getLastLocation();
-                                                latTextView.setText(String.valueOf(location.getLatitude()));
-                                                lonTextView.setText(String.valueOf(location.getLongitude()));
-                                            }
-                                        };
-                                // request location updates
-                                fusedLocationProviderClient.requestLocationUpdates(
-                                        locationRequest, locationCallback, Looper.myLooper());
-                            }
+                    task -> {
+                        // initialize location
+                        Location location = task.getResult();
+                        // make sure last location is not null
+                        if (location != null) {
+                            // do something with location
+                            latTextView.setText(String.valueOf(location.getLatitude()));
+                            lonTextView.setText(String.valueOf(location.getLongitude()));
+                        } else {
+                            // initialize location request
+                            LocationRequest locationRequest = new LocationRequest()
+                                    .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                                    .setInterval(10000)
+                                    .setFastestInterval(1000)
+                                    .setNumUpdates(1);
+                            // initialize location call back
+                            LocationCallback locationCallback =
+                                    new LocationCallback() {
+                                        @Override
+                                        public void onLocationResult(
+                                                @NonNull LocationResult locationResult) {
+                                            // initialize location
+                                            Location location =
+                                                    locationResult.getLastLocation();
+                                            latTextView.setText(String.valueOf(location.getLatitude()));
+                                            lonTextView.setText(String.valueOf(location.getLongitude()));
+                                        }
+                                    };
+                            // request location updates
+                            fusedLocationProviderClient.requestLocationUpdates(
+                                    locationRequest, locationCallback, Looper.myLooper());
                         }
                     });
         } else {
