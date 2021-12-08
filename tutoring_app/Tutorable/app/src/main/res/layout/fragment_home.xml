@@ -14,11 +14,13 @@
         android:id="@+id/header_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="24dp"
         android:paddingTop="12dp"
         android:paddingEnd="0dp"
+        android:textColor="@color/black"
+        android:gravity="center"
         android:paddingBottom="12dp"
         android:text="@string/header_welcome"
+        android:fontFamily="sans-serif-medium"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollview_your_appointments"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,11 +32,13 @@
     <ScrollView
         android:id="@+id/scrollview_your_appointments"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:fillViewport="true"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/box_with_shadow"
         android:minHeight="100dp"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@+id/button_look_for_tutors"
@@ -46,14 +50,58 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/header_your_appointments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/box_with_shadow"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif"
                 android:text="@string/header_your_appointments"
                 android:textSize="24sp" />
+            <TextView
+                android:id="@+id/part1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_with_shadow"
+                android:padding="@android:dimen/app_icon_size"
+                android:textColor="#908A88"
+                android:fontFamily="sans-serif"
+                android:text="Kyler Preston
+                Rating: 4.9/5
+                East Campus - Fox 103
+                Wednesday: 6:00PM - 9:00 PM"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/part2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_with_shadow"
+                android:padding="@android:dimen/app_icon_size"
+                android:textColor="#908A88"
+                android:fontFamily="sans-serif"
+                android:text="Josh Everett
+                Rating: 4.2/5
+                East Campus - Fox 103
+                Wednesday: 6:00PM - 9:00 PM"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/part3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_with_shadow"
+                android:padding="@android:dimen/app_icon_size"
+                android:textColor="#908A88"
+                android:fontFamily="sans-serif"
+                android:text="Vincent Gillespie
+                Rating: 3.4/5
+                South - O'Leary 159
+                Wednesday: 6:00PM - 9:00 PM"
+                android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>
 
