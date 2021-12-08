@@ -5,19 +5,14 @@ import android.content.pm.ActivityInfo;
 import android.example.tutorable.ui.login.LoginFragment;
 import android.os.Bundle;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.example.tutorable.databinding.ActivityMainBinding;
+import android.widget.FrameLayout;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements FragmentNavigation {
 
     private ActivityMainBinding binding;
 
@@ -29,11 +24,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         setContentView(binding.getRoot());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        // start login fragment
+        // start login activity
         getSupportFragmentManager().beginTransaction().add(R.id.container,
                 new LoginFragment()).commit();
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // TODO: do all this stuff after successfully logging in
+        /*BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView.setVisibility(View.VISIBLE);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -50,13 +47,16 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
                     "have a NavHostFragment");
         }
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        NavigationUI.setupWithNavController(binding.navView, navController);*/
     }
 
+    // TODO: fix so that fragments are switched properly
     public void replaceFragment(Fragment fragment, boolean addToStack) {
+        FrameLayout frameLayout = binding.navHostFragmentActivityMain;
+        frameLayout.removeAllViews();
         FragmentTransaction transaction =
                 getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_activity_main, fragment);
+        transaction.replace(R.id.container, fragment);
         if (addToStack) {
             transaction.addToBackStack(null);
         }

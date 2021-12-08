@@ -1,6 +1,6 @@
 package android.example.tutorable.ui.home;
 
-import android.example.tutorable.OnFragmentInteractionListener;
+import android.example.tutorable.FragmentNavigation;
 import android.example.tutorable.ui.appointments.AppointmentsFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,8 +27,8 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        OnFragmentInteractionListener onFragmentInteraction =
-                (OnFragmentInteractionListener) requireActivity();
+        FragmentNavigation onFragmentInteraction =
+                (FragmentNavigation) requireActivity();
 
         Button lookForAppointmentsButton =
                 (Button) root.findViewById(R.id.button_look_for_tutors);

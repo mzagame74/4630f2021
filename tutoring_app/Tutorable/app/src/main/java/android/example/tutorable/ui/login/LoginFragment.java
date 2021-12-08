@@ -1,30 +1,17 @@
 package android.example.tutorable.ui.login;
 
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
-import android.example.tutorable.OnFragmentInteractionListener;
+import android.example.tutorable.FragmentNavigation;
 import android.example.tutorable.ui.register.RegisterFragment;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.example.tutorable.databinding.FragmentLoginBinding;
-
-import android.example.tutorable.R;
 
 public class LoginFragment extends Fragment {
 
@@ -39,18 +26,18 @@ public class LoginFragment extends Fragment {
 
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        OnFragmentInteractionListener onFragmentInteraction =
-                (OnFragmentInteractionListener) requireActivity();
+        FragmentNavigation onFragmentInteraction =
+                (FragmentNavigation) requireActivity();
 
-        Button registerButton = root.findViewById(R.id.register);
+        Button registerButton = binding.register;
         registerButton.setOnClickListener(view ->
                 onFragmentInteraction.replaceFragment(new RegisterFragment(),
-                        false));
+                        true));
 
         return root;
     }
 
-    @Override
+    /*@Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
@@ -149,7 +136,7 @@ public class LoginFragment extends Fragment {
                     errorString,
                     Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
     @Override
     public void onDestroyView() {

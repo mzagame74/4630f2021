@@ -9,7 +9,8 @@
         android:id="@+id/navigation_login"
         android:name="android.example.tutorable.ui.login.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_register"
