@@ -15,4 +15,10 @@
         </item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Tutorable.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Tutorable.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Tutorable.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "431334064346",
+    "firebase_url": "https://tutorable-default-rtdb.firebaseio.com",
+    "project_id": "tutorable",
+    "storage_bucket": "tutorable.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431334064346:android:ee7283b613d704e46825e3",
+        "android_client_info": {
+          "package_name": "android.example.tutorable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431334064346-q63e18s7p11leha8ju7us7gfqmhpmlbd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPAkQykPupxX5rQVqZUMs7KTIWkjviF3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431334064346-q63e18s7p11leha8ju7us7gfqmhpmlbd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
