@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 
+import android.example.tutorable.OnFragmentInteractionListener;
+import android.example.tutorable.ui.register.RegisterFragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -36,8 +38,16 @@ public class LoginFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         binding = FragmentLoginBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        View root = binding.getRoot();
+        OnFragmentInteractionListener onFragmentInteraction =
+                (OnFragmentInteractionListener) requireActivity();
 
+        Button registerButton = root.findViewById(R.id.register);
+        registerButton.setOnClickListener(view ->
+                onFragmentInteraction.replaceFragment(new RegisterFragment(),
+                        false));
+
+        return root;
     }
 
     @Override

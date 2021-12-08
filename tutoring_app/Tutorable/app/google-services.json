@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055330241281",
+    "project_id": "tutorable-7378a",
+    "storage_bucket": "tutorable-7378a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055330241281:android:6037d12c34aca5b4f2a900",
+        "android_client_info": {
+          "package_name": "android.example.tutorable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055330241281-jvce60taquou43m5k9qjd18i7p0dvsc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPRX7hS8us5P7tsN96_DNzAp265-RwufU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055330241281-jvce60taquou43m5k9qjd18i7p0dvsc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
