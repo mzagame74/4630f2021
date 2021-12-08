@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="12dp"
         android:paddingEnd="0dp"
-        android:textColor="@color/black"
+        android:textColor="@color/sky_blue"
         android:gravity="center"
         android:paddingBottom="12dp"
         android:text="@string/header_welcome"
@@ -33,14 +33,11 @@
         android:id="@+id/scrollview_your_appointments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
         android:fillViewport="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/box_with_shadow"
         android:minHeight="100dp"
         app:layout_constrainedHeight="true"
+
         app:layout_constraintBottom_toTopOf="@+id/button_look_for_tutors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -68,40 +65,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="@android:dimen/app_icon_size"
-                android:textColor="#908A88"
+                android:padding="20dp"
+                android:textColor="@color/sky_blue"
                 android:fontFamily="sans-serif"
-                android:text="Kyler Preston
-                Rating: 4.9/5
-                East Campus - Fox 103
-                Wednesday: 6:00PM - 9:00 PM"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:text="Kyler Preston\nRating: 4.9/5\nEast Campus - Fox 103 \nMonday: 7:00 PM - 10:00 PM"
                 android:textSize="15sp" />
             <TextView
                 android:id="@+id/part2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="@android:dimen/app_icon_size"
-                android:textColor="#908A88"
+                android:padding="20dp"
+                android:textColor="@color/sky_blue"
                 android:fontFamily="sans-serif"
-                android:text="Josh Everett
-                Rating: 4.2/5
-                East Campus - Fox 103
-                Wednesday: 6:00PM - 9:00 PM"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:text="Josh Everett\nRating: 4.2/5\nEast Campus - Fox 103\nWednesday: 6:00PM - 9:00 PM"
                 android:textSize="15sp" />
             <TextView
-                android:id="@+id/part3"
+                android:id="@+id/part4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="@android:dimen/app_icon_size"
-                android:textColor="#908A88"
+                android:padding="20dp"
+                android:textColor="@color/sky_blue"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
                 android:fontFamily="sans-serif"
-                android:text="Vincent Gillespie
-                Rating: 3.4/5
-                South - O'Leary 159
-                Wednesday: 6:00PM - 9:00 PM"
+                android:text="Vincent Gillespie\nRating: 3.4/5\nSouth - O'Leary 159\nFriday: 12:45 PM - 1:45 PM"
                 android:textSize="15sp" />
+            <TextView
+                android:id="@+id/part5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/box_with_shadow"
+                android:padding="20dp"
+                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:textColor="@color/sky_blue"
+                android:fontFamily="sans-serif"
+                android:text="Liana Kemp\nRating: 3.4/5\nSouth - O'Leary 345\nThursday: 12:45 PM - 1:45 PM"
+                android:textSize="15sp" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -118,4 +121,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollview_your_appointments" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

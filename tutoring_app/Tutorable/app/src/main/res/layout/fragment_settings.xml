@@ -133,7 +133,6 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="155dp"
-        android:gravity = "center"
         android:layout_height="118dp"
         android:src="@drawable/user"
         app:layout_constraintTop_toBottomOf="@+id/header_user_info"

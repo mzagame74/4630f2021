@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         // start login fragment
-        getSupportFragmentManager().beginTransaction().add(R.id.container,
-                new LoginFragment()).commit();
+        //getSupportFragmentManager().beginTransaction().add(R.id.container,
+            //    new LoginFragment()).commit();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
