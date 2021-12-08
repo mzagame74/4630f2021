@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import android.example.tutorable.FragmentNavigation;
 import android.example.tutorable.R;
+import android.example.tutorable.ui.home.HomeFragment;
 import android.example.tutorable.ui.register.RegisterFragment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,11 +20,16 @@ import android.example.tutorable.databinding.FragmentLoginBinding;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginFragment extends Fragment {
 
     private LoginViewModel loginViewModel;
     private FragmentLoginBinding binding;
+    private FragmentNavigation fragmentNavigation;
+    private FirebaseAuth mAuth;
     private EditText emailEditText, passwordEditText;
+    private Button loginButton, registerButton;
 
     @Nullable
     @Override
@@ -33,17 +39,19 @@ public class LoginFragment extends Fragment {
 
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        FragmentNavigation onFragmentInteraction =
-                (FragmentNavigation) requireActivity();
 
+        fragmentNavigation = (FragmentNavigation) requireActivity();
+        mAuth = FirebaseAuth.getInstance();
+
+        // initialize view elements
         emailEditText = binding.email;
         passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final Button registerButton = binding.register;
+        loginButton = binding.login;
+        registerButton = binding.register;
 
         loginButton.setOnClickListener(view -> validateForm());
         registerButton.setOnClickListener(view ->
-                onFragmentInteraction.replaceFragment(new RegisterFragment(),
+                fragmentNavigation.replaceFragment(new RegisterFragment(),
                         true));
 
         return root;
@@ -69,20 +77,36 @@ public class LoginFragment extends Fragment {
             if (emailEditText.getText().toString().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")) {
                 // validate password
                 if (passwordEditText.getText().toString().length() >= 5) {
-                    Toast.makeText(requireContext(), "Login Success!",
-                            Toast.LENGTH_SHORT).show();
-                }
-                else {
+                    firebaseSignIn();
+                } else {
                     passwordEditText.setError("Password Must Be At Least 5 " +
                                     "Characters Long",
                             errorIcon);
                 }
-            }
-            else {
+            } else {
                 emailEditText.setError("Please Enter A Valid Email Address",
                         errorIcon);
             }
         }
+    }
+
+    private void firebaseSignIn() {
+        loginButton.setEnabled(false);
+        loginButton.setAlpha(0.5f);
+        mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(),
+                passwordEditText.getText().toString()).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(requireContext(), "Login Success!",
+                        Toast.LENGTH_SHORT).show();
+                fragmentNavigation.replaceFragment(new HomeFragment(), true);
+            } else {
+                loginButton.setEnabled(true);
+                loginButton.setAlpha(1.0f);
+                Toast.makeText(requireContext(),
+                        task.getException().getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /*@Override

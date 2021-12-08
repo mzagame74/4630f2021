@@ -156,6 +156,7 @@
             android:id="@+id/radio_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/radio_no"
             android:textColor="@color/black" />
     </RadioGroup>
@@ -197,7 +198,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             android:enabled="true"
-            android:text="@string/action_sign_in_short"
+            android:text="@string/action_sign_in"
             android:textColor="@color/sky_blue_variant"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>

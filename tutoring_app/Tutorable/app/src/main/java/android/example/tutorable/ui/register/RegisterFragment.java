@@ -3,6 +3,7 @@ package android.example.tutorable.ui.register;
 import android.example.tutorable.FragmentNavigation;
 import android.example.tutorable.R;
 import android.example.tutorable.databinding.FragmentRegisterBinding;
+import android.example.tutorable.ui.home.HomeFragment;
 import android.example.tutorable.ui.login.LoginFragment;
 import android.example.tutorable.ui.register.RegisterViewModel;
 import android.graphics.drawable.Drawable;
@@ -24,11 +25,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegisterFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private RegisterViewModel registerViewModel;
     private FragmentRegisterBinding binding;
+    private FragmentNavigation fragmentNavigation;
+    private FirebaseAuth mAuth;
     private EditText emailEditText, passwordEditText, confirmPasswordEditText;
+    private Spinner schoolSpinner;
+    private Button loginButton, registerButton;
 
     @Nullable
     @Override
@@ -38,15 +45,17 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
 
         binding = FragmentRegisterBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        FragmentNavigation onFragmentInteraction =
-                (FragmentNavigation) requireActivity();
 
+        fragmentNavigation = (FragmentNavigation) requireActivity();
+        mAuth = FirebaseAuth.getInstance();
+
+        // initialize view elements
         emailEditText = binding.email;
         passwordEditText = binding.password;
         confirmPasswordEditText = binding.confirmPassword;
-        final Spinner schoolSpinner = binding.spinnerSchool;
-        final Button loginButton = binding.login;
-        final Button registerButton = binding.register;
+        schoolSpinner = binding.spinnerSchool;
+        loginButton = binding.login;
+        registerButton = binding.register;
 
         // create an ArrayAdapter for the school spinner using the string
         // array and a default spinner layout
@@ -63,7 +72,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
 
         registerButton.setOnClickListener(view -> validateForm());
         loginButton.setOnClickListener(view ->
-                onFragmentInteraction.replaceFragment(new LoginFragment(),
+                fragmentNavigation.replaceFragment(new LoginFragment(),
                         false));
 
         return root;
@@ -96,25 +105,38 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
                 if (passwordEditText.getText().toString().length() >= 5) {
                     // make sure both password inputs are equal
                     if (passwordEditText.getText().toString().equals(confirmPasswordEditText.getText().toString())) {
-                        Toast.makeText(requireContext(), "Registration " +
-                                        "Success!",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                    else {
+                        firebaseSignUp();
+                    } else {
                         confirmPasswordEditText.setError("Passwords Do Not " +
                                 "Match", errorIcon);
                     }
-                }
-                else {
+                } else {
                     passwordEditText.setError("Please Enter At Least 5 " +
                             "Characters", errorIcon);
                 }
-            }
-            else {
+            } else {
                 emailEditText.setError("Please Enter A Valid Email Address",
                         errorIcon);
             }
         }
+    }
+
+    private void firebaseSignUp() {
+        registerButton.setEnabled(false);
+        registerButton.setAlpha(0.5f);
+        mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(),
+                passwordEditText.getText().toString()).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(requireContext(), "Registration Success!",
+                        Toast.LENGTH_SHORT).show();
+                fragmentNavigation.replaceFragment(new HomeFragment(), true);
+            } else {
+                registerButton.setEnabled(true);
+                registerButton.setAlpha(1.0f);
+                Toast.makeText(requireContext(), task.getException().getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

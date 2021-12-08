@@ -2,6 +2,7 @@ package android.example.tutorable.ui.home;
 
 import android.example.tutorable.FragmentNavigation;
 import android.example.tutorable.ui.appointments.AppointmentsFragment;
+import android.example.tutorable.ui.login.LoginFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,14 @@ import androidx.lifecycle.ViewModelProvider;
 import android.example.tutorable.R;
 import android.example.tutorable.databinding.FragmentHomeBinding;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    private FragmentNavigation fragmentNavigation;
+    private Button lookForAppointmentsButton, signoutButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -27,15 +32,20 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        FragmentNavigation onFragmentInteraction =
-                (FragmentNavigation) requireActivity();
+        fragmentNavigation = (FragmentNavigation) requireActivity();
 
-        Button lookForAppointmentsButton =
-                (Button) root.findViewById(R.id.button_look_for_tutors);
+        lookForAppointmentsButton = binding.buttonLookForTutors;
+        signoutButton = binding.signOut;
 
         lookForAppointmentsButton.setOnClickListener(view ->
-                onFragmentInteraction.replaceFragment(new AppointmentsFragment(),
+                fragmentNavigation.replaceFragment(new AppointmentsFragment(),
                         false));
+
+        // TODO: move this button to the settings screen
+        signoutButton.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            fragmentNavigation.replaceFragment(new LoginFragment(), false);
+        });
 
         //final TextView textView = binding.textHome;
         /*homeViewModel.getText().observe(getViewLifecycleOwner(),
