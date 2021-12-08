@@ -11,6 +11,7 @@
     tools:context=".ui.settings.SettingsFragment">
 
     <TextView
+        android:gravity="center"
         android:id="@+id/header_user_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_user_info" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/email"
@@ -128,4 +129,13 @@
         app:layout_constraintStart_toEndOf="@id/button_change_password"
         app:layout_constraintTop_toTopOf="@id/button_change_password"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="155dp"
+        android:layout_height="118dp"
+        android:src="@drawable/user"
+        app:layout_constraintTop_toBottomOf="@+id/header_user_info"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
