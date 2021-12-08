@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "431334064346",
-    "firebase_url": "https://tutorable-default-rtdb.firebaseio.com",
-    "project_id": "tutorable",
-    "storage_bucket": "tutorable.appspot.com"
+    "project_number": "1055330241281",
+    "project_id": "tutorable-7378a",
+    "storage_bucket": "tutorable-7378a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:431334064346:android:ee7283b613d704e46825e3",
+        "mobilesdk_app_id": "1:1055330241281:android:6037d12c34aca5b4f2a900",
         "android_client_info": {
           "package_name": "android.example.tutorable"
         }
       },
       "oauth_client": [
         {
-          "client_id": "431334064346-q63e18s7p11leha8ju7us7gfqmhpmlbd.apps.googleusercontent.com",
+          "client_id": "1055330241281-jvce60taquou43m5k9qjd18i7p0dvsc1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPAkQykPupxX5rQVqZUMs7KTIWkjviF3g"
+          "current_key": "AIzaSyCPRX7hS8us5P7tsN96_DNzAp265-RwufU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "431334064346-q63e18s7p11leha8ju7us7gfqmhpmlbd.apps.googleusercontent.com",
+              "client_id": "1055330241281-jvce60taquou43m5k9qjd18i7p0dvsc1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

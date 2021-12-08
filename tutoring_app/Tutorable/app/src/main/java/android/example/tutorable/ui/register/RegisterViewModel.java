@@ -1,23 +1,20 @@
-package android.example.tutorable.ui.login;
+package android.example.tutorable.ui.register;
+
+import android.example.tutorable.R;
+import android.example.tutorable.data.LoginRepository;
+import android.util.Patterns;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.util.Patterns;
+public class RegisterViewModel extends ViewModel {
 
-import android.example.tutorable.data.LoginRepository;
-import android.example.tutorable.data.Result;
-import android.example.tutorable.data.model.LoggedInUser;
-import android.example.tutorable.R;
-
-public class LoginViewModel extends ViewModel {
-
-    private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
+    /*private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
-    private LoginRepository loginRepository;
+    private LoginRepository loginRepository;*/
 
-    LoginViewModel(LoginRepository loginRepository) {
+    /*RegisterViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
 
@@ -49,7 +46,7 @@ public class LoginViewModel extends ViewModel {
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }
-    }
+    }*/
 
     // A placeholder username validation check
     private boolean isUserNameValid(String username) {

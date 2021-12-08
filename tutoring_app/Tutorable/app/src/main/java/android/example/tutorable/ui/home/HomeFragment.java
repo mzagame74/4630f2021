@@ -1,34 +1,24 @@
-/*
-* Tutorable Copyright 2021
-* HomeFragment.java sets up the view for the home screen fragment
-* replaceFragment code provided by:
-* https://stackoverflow.com/questions/32700818/how-to-open-a-fragment-on-button-click-from-a-fragment-in-android
-*/
 package android.example.tutorable.ui.home;
 
+import android.example.tutorable.OnFragmentInteractionListener;
 import android.example.tutorable.ui.appointments.AppointmentsFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.example.tutorable.R;
 import android.example.tutorable.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
-    private Button lookForAppointmentsButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -37,10 +27,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        OnFragmentInteractionListener onFragmentInteraction =
+                (OnFragmentInteractionListener) requireActivity();
 
-        lookForAppointmentsButton =
+        Button lookForAppointmentsButton =
                 (Button) root.findViewById(R.id.button_look_for_tutors);
-        lookForAppointmentsButton.setOnClickListener(this);
+
+        lookForAppointmentsButton.setOnClickListener(view ->
+                onFragmentInteraction.replaceFragment(new AppointmentsFragment(),
+                        false));
 
         //final TextView textView = binding.textHome;
         /*homeViewModel.getText().observe(getViewLifecycleOwner(),
@@ -51,25 +46,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             }
         });*/
         return root;
-    }
-
-    @Override
-    public void onClick(View v) {
-        Fragment fragment = null;
-        switch (v.getId()) {
-            case R.id.button_look_for_tutors:
-                fragment = new AppointmentsFragment();
-                replaceFragment(fragment);
-                break;
-        }
-    }
-
-    public void replaceFragment(Fragment fragment) {
-        FragmentTransaction transaction =
-                getParentFragmentManager().beginTransaction();
-        transaction.replace(R.id.nav_host_fragment_activity_main, fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 
     @Override

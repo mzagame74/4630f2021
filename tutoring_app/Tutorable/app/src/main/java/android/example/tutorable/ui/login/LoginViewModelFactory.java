@@ -1,11 +1,11 @@
 package android.example.tutorable.ui.login;
 
-import android.example.tutorable.data.LoginDataSource;
-import android.example.tutorable.data.LoginRepository;
-
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
+
+import android.example.tutorable.data.LoginDataSource;
+import android.example.tutorable.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

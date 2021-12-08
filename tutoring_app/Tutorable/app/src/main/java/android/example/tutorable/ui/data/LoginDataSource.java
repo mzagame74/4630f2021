@@ -1,6 +1,6 @@
-package android.example.tutorable.data;
+package android.example.tutorable.ui.data;
 
-import android.example.tutorable.data.model.LoggedInUser;
+import android.example.tutorable.ui.data.model.LoggedInUser;
 
 import java.io.IOException;
 
