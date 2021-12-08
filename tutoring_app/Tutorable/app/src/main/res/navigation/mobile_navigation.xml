@@ -3,7 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_login">
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="android.example.tutorable.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login"/>
+
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="android.example.tutorable.ui.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register"/>
 
     <fragment
         android:id="@+id/navigation_home"
