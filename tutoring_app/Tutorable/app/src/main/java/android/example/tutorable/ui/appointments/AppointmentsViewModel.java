@@ -1,8 +1,7 @@
 package android.example.tutorable.ui.appointments;
 
-import android.example.tutorable.data.Appointment;
+import android.example.tutorable.Appointment;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;

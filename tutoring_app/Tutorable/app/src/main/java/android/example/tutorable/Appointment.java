@@ -1,4 +1,4 @@
-package android.example.tutorable.data;
+package android.example.tutorable;
 
 import androidx.annotation.NonNull;
 
