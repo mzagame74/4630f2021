@@ -20,26 +20,35 @@
     <string name="radio_yes">yes</string>
     <string name="radio_no">no</string>
 
-    <string-array name="school_array">
-        <item>UMass Lowell</item>
-    </string-array>
-
     <string name="header_welcome">Welcome</string>
+
     <string name="button_look_for_tutors">Look For Tutors</string>
     <string name="header_your_appointments">Your Appointments</string>
-
     <string name="header_appointments">Find a Session</string>
+
     <string name="spinner_subject">Subject:</string>
     <string name="spinner_course">Course:</string>
     <string name="header_timeslots">Available Sessions</string>
+    <string name="header_settings">Settings</string>
 
+    <string name="header_user_info">User Information:</string>
+
+    <string name="spinner_school">School:</string>
+
+    <string name="button_save_settings">Save</string>
+    <string name="button_change_password">Change Password</string>
+    <string name="action_sign_out">Sign Out</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="school_array">
+        <item>UMass Lowell</item>
+    </string-array>
     <string-array name="subject_array">
         <item>Math</item>
         <item>English</item>
         <item>Electrical Engineering</item>
         <item>Computer Science</item>
     </string-array>
-
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="course_array">
         <item>Calculus I</item>
         <item>Calculus II</item>
@@ -53,11 +62,4 @@
         <item>Computing II</item>
         <item>Computer Architecture</item>
     </string-array>
-
-    <string name="header_settings">Settings</string>
-    <string name="header_user_info">User Information:</string>
-    <string name="spinner_school">School:</string>
-    <string name="button_save_settings">Save</string>
-    <string name="button_change_password">Change Password</string>
-    <string name="action_sign_out">Sign Out</string>
 </resources>
