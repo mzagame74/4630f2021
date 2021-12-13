@@ -40,6 +40,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
         fragmentNavigation = (FragmentNavigation) requireActivity();
         signoutButton = binding.buttonSignOut;
+        schoolSpinner = binding.spinnerSchool;
 
         // create an ArrayAdapter for the school spinner using the string
         // array and a default spinner layout
