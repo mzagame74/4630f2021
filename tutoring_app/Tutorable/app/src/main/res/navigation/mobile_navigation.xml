@@ -37,7 +37,7 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/tutor_registration"
+        android:id="@+id/navigation_tutor_registration"
         android:name="android.example.tutorable.ui.appointments.AppointmentsFragment"
         android:label="Tutor Registration"
         tools:layout="@layout/fragment_tutor_registration" />

@@ -23,7 +23,7 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
     private FragmentNavigation fragmentNavigation;
-    private Button lookForAppointmentsButton, signoutButton;
+    private Button lookForAppointmentsButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -35,17 +35,10 @@ public class HomeFragment extends Fragment {
         fragmentNavigation = (FragmentNavigation) requireActivity();
 
         lookForAppointmentsButton = binding.buttonLookForTutors;
-        signoutButton = binding.signOut;
 
         lookForAppointmentsButton.setOnClickListener(view ->
                 fragmentNavigation.replaceFragment(new AppointmentsFragment(),
                         false));
-
-        // TODO: move this button to the settings screen
-        signoutButton.setOnClickListener(view -> {
-            FirebaseAuth.getInstance().signOut();
-            fragmentNavigation.replaceFragment(new LoginFragment(), false);
-        });
 
         //final TextView textView = binding.textHome;
         /*homeViewModel.getText().observe(getViewLifecycleOwner(),

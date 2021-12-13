@@ -14,13 +14,13 @@
         android:id="@+id/header_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:paddingEnd="0dp"
-        android:textColor="@color/sky_blue"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:paddingTop="12dp"
         android:paddingBottom="12dp"
         android:text="@string/header_welcome"
-        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/sky_blue"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollview_your_appointments"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,13 +32,16 @@
     <ScrollView
         android:id="@+id/scrollview_your_appointments"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/box_with_shadow"
+        android:fillViewport="true"
+
         android:minHeight="100dp"
         app:layout_constrainedHeight="true"
-
         app:layout_constraintBottom_toTopOf="@+id/button_look_for_tutors"
+        app:layout_constraintDimensionRatio="w,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,63 +50,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/header_your_appointments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@drawable/box_with_shadow"
-                android:textColor="@color/black"
                 android:fontFamily="sans-serif"
+                android:gravity="center"
                 android:text="@string/header_your_appointments"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
+
             <TextView
                 android:id="@+id/part1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="20dp"
-                android:textColor="@color/sky_blue"
                 android:fontFamily="sans-serif"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:padding="20dp"
                 android:text="Kyler Preston\nRating: 4.9/5\nEast Campus - Fox 103 \nMonday: 7:00 PM - 10:00 PM"
-                android:textSize="15sp" />
+                android:textColor="@color/sky_blue"
+                android:textSize="15sp"
+                app:drawableStartCompat="@drawable/ic_baseline_account_circle_24" />
+
             <TextView
                 android:id="@+id/part2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="20dp"
-                android:textColor="@color/sky_blue"
                 android:fontFamily="sans-serif"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                android:padding="20dp"
                 android:text="Josh Everett\nRating: 4.2/5\nEast Campus - Fox 103\nWednesday: 6:00PM - 9:00 PM"
-                android:textSize="15sp" />
+                android:textColor="@color/sky_blue"
+                android:textSize="15sp"
+                app:drawableStartCompat="@drawable/ic_baseline_account_circle_24" />
+
             <TextView
                 android:id="@+id/part4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="20dp"
-                android:textColor="@color/sky_blue"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
                 android:fontFamily="sans-serif"
+                android:padding="20dp"
                 android:text="Vincent Gillespie\nRating: 3.4/5\nSouth - O'Leary 159\nFriday: 12:45 PM - 1:45 PM"
-                android:textSize="15sp" />
+                android:textColor="@color/sky_blue"
+                android:textSize="15sp"
+                app:drawableStartCompat="@drawable/ic_baseline_account_circle_24" />
+
             <TextView
                 android:id="@+id/part5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/box_with_shadow"
-                android:padding="20dp"
-                android:drawableStart="@drawable/ic_baseline_account_circle_24"
-                android:textColor="@color/sky_blue"
                 android:fontFamily="sans-serif"
+                android:padding="20dp"
                 android:text="Liana Kemp\nRating: 3.4/5\nSouth - O'Leary 345\nThursday: 12:45 PM - 1:45 PM"
-                android:textSize="15sp" />
+                android:textColor="@color/sky_blue"
+                android:textSize="15sp"
+                app:drawableStartCompat="@drawable/ic_baseline_account_circle_24" />
 
         </LinearLayout>
     </ScrollView>
@@ -113,28 +119,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="8dp"
         android:enabled="true"
         android:text="@string/button_look_for_tutors"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollview_your_appointments" />
-
-    <Button
-        android:id="@+id/sign_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:enabled="true"
-        android:text="@string/action_sign_out"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@id/button_look_for_tutors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_look_for_tutors" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

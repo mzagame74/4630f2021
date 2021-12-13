@@ -23,12 +23,22 @@
         android:paddingBottom="12dp"
         android:text="@string/header_user_info"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed"/>
+
+    <ImageView
+        android:id="@+id/imageView_profile"
+        android:layout_width="155dp"
+        android:layout_height="118dp"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_user_info"/>
 
     <EditText
         android:id="@+id/name"
@@ -45,7 +55,7 @@
         app:layout_constraintBottom_toTopOf="@id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_profile" />
 
     <EditText
         android:id="@+id/email"
@@ -107,7 +117,7 @@
         android:text="@string/button_change_password"
         android:textColor="@color/white"
         app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_sign_out"
         app:layout_constraintEnd_toStartOf="@id/button_save_settings"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -130,12 +140,22 @@
         app:layout_constraintTop_toTopOf="@id/button_change_password"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="155dp"
-        android:layout_height="118dp"
-        android:src="@drawable/user"
-        app:layout_constraintTop_toBottomOf="@+id/header_user_info"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="20dp" />
+    <Button
+        android:id="@+id/button_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:enabled="true"
+        android:text="@string/action_sign_out"
+        android:textColor="@color/white"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_change_password" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
