@@ -19,7 +19,7 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/app_logo"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintBottom_toTopOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,24 +27,48 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/email"
+        android:id="@+id/name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:hint="@string/prompt_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:selectAllOnFocus="true"
+        android:textColor="@color/dark_grey"
         android:background="@drawable/login_edit"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         android:hint="@string/prompt_email"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
         android:textColor="@color/dark_grey"
+        android:background="@drawable/login_edit"
         app:layout_constraintBottom_toTopOf="@id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
@@ -54,6 +78,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         android:background="@drawable/login_edit"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
@@ -76,6 +102,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         android:background="@drawable/login_edit"
         android:hint="@string/prompt_confirm_password"
         android:imeActionLabel="@string/action_sign_in_short"
@@ -113,8 +141,11 @@
         android:id="@+id/spinner_school"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:background="@drawable/login_edit"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="@id/header_school"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,23 +164,28 @@
         app:layout_constraintBottom_toTopOf="@+id/button_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner_school">
+        app:layout_constraintTop_toBottomOf="@id/header_school">
 
         <TextView
             android:id="@+id/prompt_tutor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="4dp"
             android:paddingStart="24dp"
             android:paddingTop="12dp"
             android:paddingEnd="0dp"
             android:paddingBottom="12dp"
             android:text="@string/prompt_tutor"
+            android:textSize="24sp"
             android:textColor="@color/dark_grey" />
 
         <RadioButton
             android:id="@+id/radio_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/radio_yes"
             android:textColor="@color/dark_grey" />
 
@@ -157,9 +193,12 @@
             android:id="@+id/radio_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             android:checked="true"
             android:text="@string/radio_no"
-            android:textColor="@color/dark_grey" />
+            android:textColor="@color/dark_grey"
+            tools:ignore="TextContrastCheck" />
     </RadioGroup>
 
     <LinearLayout
@@ -167,26 +206,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radio_group">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
-            android:enabled="true"
-            android:text="@string/action_sign_up"
-            android:textColor="@color/white"
-            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login"
@@ -195,12 +222,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             android:enabled="true"
             android:text="@string/action_sign_in"
             android:textColor="@color/sky_blue_variant"
+            tools:ignore="TextContrastCheck" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:enabled="true"
+            android:text="@string/action_sign_up"
+            android:textColor="@color/white"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
 

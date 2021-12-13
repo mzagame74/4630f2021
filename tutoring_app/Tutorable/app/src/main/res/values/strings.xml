@@ -43,6 +43,7 @@
     <string name="button_save_settings">Save</string>
     <string name="button_change_password">Change Password</string>
     <string name="action_sign_out">Sign Out</string>
+    <string name="profile_picture">Profile Picture</string>
 
     <string-array name="school_array">
         <item>UMass Lowell</item>
