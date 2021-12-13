@@ -36,7 +36,8 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
     private FragmentRegisterBinding binding;
     private FragmentNavigation fragmentNavigation;
     private FirebaseAuth mAuth;
-    private EditText emailEditText, passwordEditText, confirmPasswordEditText;
+    private EditText nameEditText, emailEditText, passwordEditText,
+            confirmPasswordEditText;
     private Spinner schoolSpinner;
     private Button loginButton, registerButton;
 
@@ -53,6 +54,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
         mAuth = FirebaseAuth.getInstance();
 
         // initialize view elements
+        nameEditText = binding.name;
         emailEditText = binding.email;
         passwordEditText = binding.password;
         confirmPasswordEditText = binding.confirmPassword;
@@ -73,61 +75,76 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
         schoolSpinner.setAdapter(schoolAdapter);
         schoolSpinner.setOnItemSelectedListener(this);
 
-        registerButton.setOnClickListener(view -> validateForm());
+        registerButton.setOnClickListener(view -> {
+            String name = nameEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
+            String confirmPassword =
+                    confirmPasswordEditText.getText().toString();
+            validateForm(name, email, password, confirmPassword);
+        });
         loginButton.setOnClickListener(view ->
                 fragmentNavigation.navigateToFragment(R.id.navigation_login));
 
         return root;
     }
 
-    private void validateForm() {
+    private void validateForm(String name, String email, String password,
+                              String confirmPassword) {
         Drawable errorIcon = AppCompatResources.getDrawable(requireContext(),
                 R.drawable.ic_error);
         if (errorIcon != null) {
             errorIcon.setBounds(0, 0, errorIcon.getIntrinsicWidth(),
                     errorIcon.getIntrinsicHeight());
         }
-        if (TextUtils.isEmpty(emailEditText.getText().toString().trim())) {
+
+        if (TextUtils.isEmpty(name.trim())) {
+            nameEditText.setError("Please Enter A Name", errorIcon);
+            nameEditText.requestFocus();
+        } else if (TextUtils.isEmpty(email.trim())) {
             emailEditText.setError("Please Enter An Email Address", errorIcon);
-        }
-        if (TextUtils.isEmpty(passwordEditText.getText().toString().trim())) {
+            emailEditText.requestFocus();
+        } else if (TextUtils.isEmpty(password.trim())) {
             passwordEditText.setError("Please Enter A Password", errorIcon);
-        }
-        if (TextUtils.isEmpty(confirmPasswordEditText.getText().toString().trim())) {
+            passwordEditText.requestFocus();
+        } else if (TextUtils.isEmpty(confirmPassword.trim())) {
             confirmPasswordEditText.setError("Please Enter A Password",
                     errorIcon);
+            confirmPasswordEditText.requestFocus();
         }
 
-        if ((!emailEditText.getText().toString().isEmpty()) &&
-                (!passwordEditText.getText().toString().isEmpty()) &&
-                (!confirmPasswordEditText.getText().toString().isEmpty())) {
+        if ((!name.isEmpty()) && (!email.isEmpty()) &&
+                (!password.isEmpty()) && (!confirmPassword.isEmpty())) {
             // validate email
-            if (emailEditText.getText().toString().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")) {
+            if (email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\" +
+                    ".[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")) {
                 // validate password
-                if (passwordEditText.getText().toString().length() >= 5) {
+                if (password.length() >= 5) {
                     // make sure both password inputs are equal
-                    if (passwordEditText.getText().toString().equals(confirmPasswordEditText.getText().toString())) {
-                        firebaseSignUp();
+                    if (password.equals(confirmPassword)) {
+                        firebaseSignUp(email, password);
                     } else {
                         confirmPasswordEditText.setError("Passwords Do Not " +
                                 "Match", errorIcon);
+                        confirmPasswordEditText.requestFocus();
                     }
                 } else {
                     passwordEditText.setError("Please Enter At Least 5 " +
                             "Characters", errorIcon);
+                    passwordEditText.requestFocus();
                 }
             } else {
                 emailEditText.setError("Please Enter A Valid Email Address",
                         errorIcon);
+                emailEditText.requestFocus();
             }
         }
     }
 
-    private void firebaseSignUp() {
+    private void firebaseSignUp(String email, String password) {
         registerButton.setEnabled(false);
         registerButton.setAlpha(0.5f);
-        mAuth.createUserWithEmailAndPassword(emailEditText.getText().toString(),
-                passwordEditText.getText().toString()).addOnCompleteListener(task -> {
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(requireContext(), "Registration Success!",
                         Toast.LENGTH_SHORT).show();

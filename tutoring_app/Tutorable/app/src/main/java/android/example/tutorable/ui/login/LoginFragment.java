@@ -51,51 +51,59 @@ public class LoginFragment extends Fragment {
         loginButton = binding.login;
         registerButton = binding.register;
 
-        loginButton.setOnClickListener(view -> validateForm());
+        loginButton.setOnClickListener(view -> {
+            String email = emailEditText.getText().toString();
+            String password = passwordEditText.getText().toString();
+            validateForm(email, password);
+        });
         registerButton.setOnClickListener(view ->
                 fragmentNavigation.navigateToFragment(R.id.navigation_register));
 
         return root;
     }
 
-    private void validateForm() {
+    private void validateForm(String email, String password) {
         Drawable errorIcon = AppCompatResources.getDrawable(requireContext(),
                 R.drawable.ic_error);
         if (errorIcon != null) {
             errorIcon.setBounds(0, 0, errorIcon.getIntrinsicWidth(),
                     errorIcon.getIntrinsicHeight());
         }
-        if (TextUtils.isEmpty(emailEditText.getText().toString().trim())) {
+
+        if (TextUtils.isEmpty(email.trim())) {
             emailEditText.setError("Please Enter An Email Address", errorIcon);
+            emailEditText.requestFocus();
         }
-        if (TextUtils.isEmpty(passwordEditText.getText().toString().trim())) {
+        else if (TextUtils.isEmpty(password.trim())) {
             passwordEditText.setError("Please Enter A Password", errorIcon);
+            passwordEditText.requestFocus();
         }
 
-        if ((!emailEditText.getText().toString().isEmpty()) &&
-                (!passwordEditText.getText().toString().isEmpty())) {
+        if ((!email.isEmpty()) &&
+                (!password.isEmpty())) {
             // validate email
-            if (emailEditText.getText().toString().matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")) {
+            if (email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")) {
                 // validate password
-                if (passwordEditText.getText().toString().length() >= 5) {
-                    firebaseSignIn();
+                if (password.length() >= 5) {
+                    firebaseSignIn(email, password);
                 } else {
                     passwordEditText.setError("Password Must Be At Least 5 " +
                                     "Characters Long",
                             errorIcon);
+                    passwordEditText.requestFocus();
                 }
             } else {
                 emailEditText.setError("Please Enter A Valid Email Address",
                         errorIcon);
+                emailEditText.requestFocus();
             }
         }
     }
 
-    private void firebaseSignIn() {
+    private void firebaseSignIn(String email, String password) {
         loginButton.setEnabled(false);
         loginButton.setAlpha(0.5f);
-        mAuth.signInWithEmailAndPassword(emailEditText.getText().toString(),
-                passwordEditText.getText().toString()).addOnCompleteListener(task -> {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(requireContext(), "Login Success!",
                         Toast.LENGTH_SHORT).show();
