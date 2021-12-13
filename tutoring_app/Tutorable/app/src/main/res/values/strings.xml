@@ -20,8 +20,13 @@
     <string name="radio_yes">yes</string>
     <string name="radio_no">no</string>
 
-    <string name="header_welcome">Welcome</string>
+    <string name="header_tutor_registration">Register as a Tutor</string>
+    <string name="action_upload_file">Upload</string>
+    <string name="action_submit">Submit</string>
+    <string name="editText_resume">Select Resume</string>
+    <string name="editText_transcript">Select Transcript</string>
 
+    <string name="header_welcome">Welcome</string>
     <string name="button_look_for_tutors">Look For Tutors</string>
     <string name="header_your_appointments">Your Appointments</string>
     <string name="header_appointments">Find a Session</string>
@@ -38,7 +43,7 @@
     <string name="button_save_settings">Save</string>
     <string name="button_change_password">Change Password</string>
     <string name="action_sign_out">Sign Out</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string-array name="school_array">
         <item>UMass Lowell</item>
     </string-array>
@@ -48,7 +53,6 @@
         <item>Electrical Engineering</item>
         <item>Computer Science</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="course_array">
         <item>Calculus I</item>
         <item>Calculus II</item>

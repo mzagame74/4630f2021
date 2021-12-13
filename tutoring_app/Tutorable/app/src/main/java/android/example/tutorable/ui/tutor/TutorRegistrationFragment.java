@@ -13,12 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.example.tutorable.R;
 
-public class tutor_registration extends Fragment {
+public class TutorRegistrationFragment extends Fragment {
 
     private TutorRegistrationViewModel mViewModel;
 
-    public static tutor_registration newInstance() {
-        return new tutor_registration();
+    public static TutorRegistrationFragment newInstance() {
+        return new TutorRegistrationFragment();
     }
 
     @Override
