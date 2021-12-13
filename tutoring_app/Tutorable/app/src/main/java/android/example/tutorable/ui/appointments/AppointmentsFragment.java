@@ -33,6 +33,8 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
+import java.util.Objects;
+
 public class AppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private AppointmentsViewModel appointmentsViewModel;
@@ -135,7 +137,7 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
     private void getCurrentLocation() {
         // initialize location manager
         LocationManager locationManger =
-                (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+                (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
 
         // if location service is enabled then get last location
         if (locationManger.isProviderEnabled(LocationManager.GPS_PROVIDER) ||

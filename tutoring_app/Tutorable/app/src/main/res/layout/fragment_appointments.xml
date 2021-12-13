@@ -18,12 +18,11 @@
         android:paddingStart="24dp"
         android:paddingTop="12dp"
         android:paddingEnd="0dp"
-        android:gravity="center"
-        android:textColor="@color/black"
         android:paddingBottom="12dp"
         android:text="@string/header_appointments"
         android:fontFamily="sans-serif-medium"
-        android:textSize="40sp"
+        android:textSize="36sp"
+        android:textColor="@color/dark_grey"
         app:layout_constraintBottom_toTopOf="@+id/header_subject"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-
         android:layout_marginBottom="4dp"
         android:labelFor="@+id/spinner_subject"
         android:paddingStart="24dp"
@@ -46,6 +44,7 @@
         android:paddingBottom="12dp"
         android:text="@string/spinner_subject"
         android:textSize="24sp"
+        android:textColor="@color/dark_grey"
         app:layout_constraintBottom_toTopOf="@+id/header_course"
         app:layout_constraintEnd_toStartOf="@+id/spinner_subject"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +77,7 @@
         android:paddingBottom="12dp"
         android:text="@string/spinner_course"
         android:textSize="24sp"
+        android:textColor="@color/dark_grey"
         app:layout_constraintBottom_toTopOf="@+id/scrollview_timeslots"
         app:layout_constraintEnd_toStartOf="@id/spinner_course"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +125,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/header_timeslots"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textColor="@color/dark_grey"/>
         </LinearLayout>
     </ScrollView>
 

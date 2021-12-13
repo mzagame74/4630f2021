@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements FragmentNavigation {
 
     private ActivityMainBinding binding;
+    private NavController navController;
     private FirebaseAuth mAuth;
 
     @SuppressLint("SourceLockedOrientationActivity")
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
                 .build();
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
-        NavController navController;
         if (navHostFragment != null) {
             navController = navHostFragment.getNavController();
         } else {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
                     "have a NavHostFragment");
         }
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        NavigationUI.setupWithNavController(navView, navController);
     }
 
     @Override
@@ -64,27 +64,21 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
         // Check if user is signed in (non-null) and update UI accordingly
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.container
-                    , new HomeFragment()).addToBackStack(null).commit();
+            navigateToFragment(R.id.navigation_home);
         }
         else {
             // start login activity
-            getSupportFragmentManager().beginTransaction().add(R.id.container,
-                    new LoginFragment()).commit();
-            binding.navView.setVisibility(View.GONE);
+            navigateToFragment(R.id.navigation_login);
         }
     }
 
-    // TODO: fix so that fragments are switched properly
-    public void replaceFragment(Fragment fragment, boolean addToStack) {
-        FrameLayout frameLayout = binding.navHostFragmentActivityMain;
-        frameLayout.removeAllViews();
-        FragmentTransaction transaction =
-                getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, fragment);
-        if (addToStack) {
-            transaction.addToBackStack(null);
+    public void navigateToFragment(int resId) {
+        navController.navigate(resId);
+        if (resId == R.id.navigation_login || resId == R.id.navigation_register) {
+            binding.navView.setVisibility(View.GONE);
         }
-        transaction.commit();
+        else {
+            binding.navView.setVisibility(View.VISIBLE);
+        }
     }
 }

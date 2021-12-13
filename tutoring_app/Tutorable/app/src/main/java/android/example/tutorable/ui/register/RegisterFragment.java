@@ -1,6 +1,7 @@
 package android.example.tutorable.ui.register;
 
 import android.example.tutorable.FragmentNavigation;
+import android.example.tutorable.MainActivity;
 import android.example.tutorable.R;
 import android.example.tutorable.databinding.FragmentRegisterBinding;
 import android.example.tutorable.ui.home.HomeFragment;
@@ -26,6 +27,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class RegisterFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -66,14 +69,13 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
         // specify the layout to use when the list of choices appears
         schoolAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // apply the adapter and item listener to the spinners\
+        // apply the adapter and item listener to the spinners
         schoolSpinner.setAdapter(schoolAdapter);
         schoolSpinner.setOnItemSelectedListener(this);
 
         registerButton.setOnClickListener(view -> validateForm());
         loginButton.setOnClickListener(view ->
-                fragmentNavigation.replaceFragment(new LoginFragment(),
-                        false));
+                fragmentNavigation.navigateToFragment(R.id.navigation_login));
 
         return root;
     }
@@ -129,11 +131,11 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
             if (task.isSuccessful()) {
                 Toast.makeText(requireContext(), "Registration Success!",
                         Toast.LENGTH_SHORT).show();
-                fragmentNavigation.replaceFragment(new HomeFragment(), true);
+                fragmentNavigation.navigateToFragment(R.id.navigation_home);
             } else {
                 registerButton.setEnabled(true);
                 registerButton.setAlpha(1.0f);
-                Toast.makeText(requireContext(), task.getException().getMessage(),
+                Toast.makeText(requireContext(), Objects.requireNonNull(task.getException()).getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
         });

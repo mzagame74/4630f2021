@@ -3,38 +3,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_login">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_login"
         android:name="android.example.tutorable.ui.login.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_register"
+            app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_register"
         android:name="android.example.tutorable.ui.register.RegisterFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_register"/>
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_tutor_registration"
+            app:destination="@id/navigation_tutor_registration" />
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_home"
         android:name="android.example.tutorable.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_appointments"
+            app:destination="@id/navigation_appointments" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_appointments"
         android:name="android.example.tutorable.ui.appointments.AppointmentsFragment"
         android:label="@string/title_appointments"
-        tools:layout="@layout/fragment_appointments" />
+        tools:layout="@layout/fragment_appointments" >
+        <action
+            android:id="@+id/action_navigation_appointments_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_appointments_to_navigation_settings"
+            app:destination="@id/navigation_settings" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="android.example.tutorable.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_navigation_settings_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_settings_to_navigation_appointments"
+            app:destination="@id/navigation_appointments" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_tutor_registration"

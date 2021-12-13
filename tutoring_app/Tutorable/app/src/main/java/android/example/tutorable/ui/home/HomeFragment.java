@@ -34,12 +34,6 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
         fragmentNavigation = (FragmentNavigation) requireActivity();
 
-        lookForAppointmentsButton = binding.buttonLookForTutors;
-
-        lookForAppointmentsButton.setOnClickListener(view ->
-                fragmentNavigation.replaceFragment(new AppointmentsFragment(),
-                        false));
-
         //final TextView textView = binding.textHome;
         /*homeViewModel.getText().observe(getViewLifecycleOwner(),
                 new Observer<String>() {
