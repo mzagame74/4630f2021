@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_navigation_login_to_navigation_register"
             app:destination="@id/navigation_register" />
-        <action
-            android:id="@+id/action_navigation_login_to_navigation_home"
-            app:destination="@id/navigation_home" />
     </fragment>
 
     <fragment
@@ -26,9 +23,6 @@
         <action
             android:id="@+id/action_navigation_register_to_navigation_tutor_registration"
             app:destination="@id/navigation_tutor_registration" />
-        <action
-            android:id="@+id/action_navigation_register_to_navigation_home"
-            app:destination="@id/navigation_home" />
         <action
             android:id="@+id/action_navigation_register_to_navigation_login"
             app:destination="@id/navigation_login" />
