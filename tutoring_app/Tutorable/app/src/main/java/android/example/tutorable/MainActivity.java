@@ -2,21 +2,15 @@ package android.example.tutorable;
 
 import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
-import android.example.tutorable.ui.home.HomeFragment;
-import android.example.tutorable.ui.login.LoginFragment;
+import android.example.tutorable.databinding.ActivityMainBinding;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.example.tutorable.databinding.ActivityMainBinding;
-import android.view.View;
-import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;

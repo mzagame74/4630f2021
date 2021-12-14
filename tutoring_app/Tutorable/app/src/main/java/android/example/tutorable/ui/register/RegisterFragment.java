@@ -1,20 +1,10 @@
 package android.example.tutorable.ui.register;
 
 import android.example.tutorable.FragmentNavigation;
-import android.example.tutorable.MainActivity;
 import android.example.tutorable.R;
 import android.example.tutorable.databinding.FragmentRegisterBinding;
-import android.example.tutorable.ui.home.HomeFragment;
-import android.example.tutorable.ui.login.LoginFragment;
-import android.example.tutorable.ui.register.RegisterViewModel;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.fragment.app.Fragment;
-
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.tutorable.R;
+import android.example.tutorable.databinding.FragmentAppointmentsBinding;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -18,22 +19,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.example.tutorable.databinding.FragmentAppointmentsBinding;
-import android.widget.Toast;
-
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-
-import java.util.Objects;
 
 public class AppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
