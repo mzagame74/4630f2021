@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_navigation_login_to_navigation_register"
             app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -25,7 +30,14 @@
             app:destination="@id/navigation_tutor_registration" />
         <action
             android:id="@+id/action_navigation_register_to_navigation_login"
-            app:destination="@id/navigation_login" />
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/navigation_login"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -39,6 +51,11 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_settings"
             app:destination="@id/navigation_settings" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -65,6 +82,11 @@
         <action
             android:id="@+id/action_navigation_settings_to_navigation_appointments"
             app:destination="@id/navigation_appointments" />
+        <action
+            android:id="@+id/action_navigation_settings_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/mobile_navigation"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
