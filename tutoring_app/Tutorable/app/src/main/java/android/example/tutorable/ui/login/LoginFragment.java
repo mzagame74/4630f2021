@@ -55,7 +55,7 @@ public class LoginFragment extends Fragment {
             validateForm(email, password);
         });
         registerButton.setOnClickListener(view ->
-                fragmentNavigation.navigateToFragment(R.id.navigation_register));
+                fragmentNavigation.navigateToFragment(R.id.action_navigation_login_to_navigation_register));
 
         return root;
     }

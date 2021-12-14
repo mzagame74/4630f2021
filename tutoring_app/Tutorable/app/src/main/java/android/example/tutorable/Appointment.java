@@ -74,6 +74,6 @@ public class Appointment {
     @NonNull
     public String toString() {
         return course + " w/ " + tutorName + " at " + location + " from " +
-                date.getHours() + ":00 to " + ((date.getHours() + hours) % 24) + ":00\n";
+                date.getHours() + ":00 to " + ((date.getHours() + hours) % 24) + ":00";
     }
 }

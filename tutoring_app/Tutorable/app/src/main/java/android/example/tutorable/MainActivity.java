@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
     private ActivityMainBinding binding;
     private NavController navController;
     private FirebaseAuth mAuth;
-    private ActionBar actionBar;
+    private ActionBar actionBar;    // TODO: fix back button in action bar
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
         if (resId == R.id.navigation_login || resId == R.id.navigation_register
                 || resId == R.id.action_navigation_home_to_navigation_login ||
                 resId == R.id.action_navigation_settings_to_navigation_login ||
+                resId == R.id.action_navigation_login_to_navigation_register ||
                 resId == R.id.action_navigation_register_to_navigation_login) {
             binding.navView.setVisibility(View.GONE);
         } else {
