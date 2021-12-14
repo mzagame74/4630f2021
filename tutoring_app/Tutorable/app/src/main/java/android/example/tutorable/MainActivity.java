@@ -6,8 +6,10 @@ import android.example.tutorable.databinding.ActivityMainBinding;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
     private ActivityMainBinding binding;
     private NavController navController;
     private FirebaseAuth mAuth;
+    private ActionBar actionBar;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -28,10 +31,12 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mAuth = FirebaseAuth.getInstance();
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // set up navigation
+        BottomNavigationView navView = binding.navView;
         navView.setVisibility(View.VISIBLE);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -59,20 +64,21 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             navigateToFragment(R.id.navigation_home);
-        }
-        else {
+        } else {
             // start login activity
-            navigateToFragment(R.id.navigation_login);
+            navigateToFragment(R.id.action_navigation_home_to_navigation_login);
         }
     }
 
     public void navigateToFragment(int resId) {
-        navController.navigate(resId);
-        if (resId == R.id.navigation_login || resId == R.id.navigation_register) {
+        if (resId == R.id.navigation_login || resId == R.id.navigation_register
+                || resId == R.id.action_navigation_home_to_navigation_login ||
+                resId == R.id.action_navigation_settings_to_navigation_login ||
+                resId == R.id.action_navigation_register_to_navigation_login) {
             binding.navView.setVisibility(View.GONE);
-        }
-        else {
+        } else {
             binding.navView.setVisibility(View.VISIBLE);
         }
+        navController.navigate(resId);
     }
 }

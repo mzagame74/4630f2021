@@ -71,8 +71,7 @@ public class LoginFragment extends Fragment {
         if (TextUtils.isEmpty(email.trim())) {
             emailEditText.setError("Please Enter An Email Address", errorIcon);
             emailEditText.requestFocus();
-        }
-        else if (TextUtils.isEmpty(password.trim())) {
+        } else if (TextUtils.isEmpty(password.trim())) {
             passwordEditText.setError("Please Enter A Password", errorIcon);
             passwordEditText.requestFocus();
         }
@@ -105,7 +104,7 @@ public class LoginFragment extends Fragment {
             if (task.isSuccessful()) {
                 Toast.makeText(requireContext(), "Login Success!",
                         Toast.LENGTH_SHORT).show();
-                fragmentNavigation.navigateToFragment(R.id.navigation_home);
+                fragmentNavigation.navigateToFragment(R.id.action_navigation_login_to_navigation_home);
             } else {
                 loginButton.setEnabled(true);
                 loginButton.setAlpha(1.0f);

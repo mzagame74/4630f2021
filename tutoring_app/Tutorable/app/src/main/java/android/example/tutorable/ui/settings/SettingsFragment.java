@@ -57,7 +57,7 @@ public class SettingsFragment extends Fragment implements AdapterView.OnItemSele
 
         signoutButton.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
-            fragmentNavigation.navigateToFragment(R.id.navigation_login);
+            fragmentNavigation.navigateToFragment(R.id.action_navigation_settings_to_navigation_login);
         });
 
         //final TextView textView = binding.textSettings;

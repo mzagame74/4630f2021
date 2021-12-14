@@ -79,7 +79,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
             validateForm(name, email, password, confirmPassword);
         });
         loginButton.setOnClickListener(view ->
-                fragmentNavigation.navigateToFragment(R.id.navigation_login));
+                fragmentNavigation.navigateToFragment(R.id.action_navigation_register_to_navigation_login));
 
         return root;
     }
@@ -143,7 +143,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
             if (task.isSuccessful()) {
                 Toast.makeText(requireContext(), "Registration Success!",
                         Toast.LENGTH_SHORT).show();
-                fragmentNavigation.navigateToFragment(R.id.navigation_home);
+                fragmentNavigation.navigateToFragment(R.id.action_navigation_register_to_navigation_home);
             } else {
                 registerButton.setEnabled(true);
                 registerButton.setAlpha(1.0f);
