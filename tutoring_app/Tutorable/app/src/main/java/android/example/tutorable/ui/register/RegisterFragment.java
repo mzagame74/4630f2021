@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
             confirmPasswordEditText;
     private Spinner schoolSpinner;
     private Button loginButton, registerButton;
+    private RadioButton radioYes;
 
     @Nullable
     @Override
@@ -56,6 +58,7 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
         schoolSpinner = binding.spinnerSchool;
         loginButton = binding.login;
         registerButton = binding.register;
+        radioYes = binding.radioYes;
 
         // create an ArrayAdapter for the school spinner using the string
         // array and a default spinner layout
@@ -139,11 +142,18 @@ public class RegisterFragment extends Fragment implements AdapterView.OnItemSele
     private void firebaseSignUp(String email, String password) {
         registerButton.setEnabled(false);
         registerButton.setAlpha(0.5f);
+        // TODO: don't register a tutor until after filling out the
+        //  registration form
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                Toast.makeText(requireContext(), "Registration Success!",
-                        Toast.LENGTH_SHORT).show();
-                fragmentNavigation.navigateToFragment(R.id.action_navigation_register_to_navigation_home);
+                if (radioYes.isChecked()) {
+                    fragmentNavigation.navigateToFragment(R.id.action_navigation_register_to_navigation_tutor_registration);
+                }
+                else {
+                    Toast.makeText(requireContext(), "Registration Success!",
+                            Toast.LENGTH_SHORT).show();
+                    fragmentNavigation.navigateToFragment(R.id.action_navigation_register_to_navigation_home);
+                }
             } else {
                 registerButton.setEnabled(true);
                 registerButton.setAlpha(1.0f);

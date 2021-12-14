@@ -71,11 +71,12 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigatio
     }
 
     public void navigateToFragment(int resId) {
-        if (resId == R.id.navigation_login || resId == R.id.navigation_register
+        if (resId == R.id.navigation_login || resId == R.id.navigation_register || resId == R.id.navigation_tutor_registration
                 || resId == R.id.action_navigation_home_to_navigation_login ||
                 resId == R.id.action_navigation_settings_to_navigation_login ||
                 resId == R.id.action_navigation_login_to_navigation_register ||
-                resId == R.id.action_navigation_register_to_navigation_login) {
+                resId == R.id.action_navigation_register_to_navigation_login ||
+                resId == R.id.action_navigation_register_to_navigation_tutor_registration) {
             binding.navView.setVisibility(View.GONE);
         } else {
             binding.navView.setVisibility(View.VISIBLE);

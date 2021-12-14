@@ -91,7 +91,7 @@
 
     <fragment
         android:id="@+id/navigation_tutor_registration"
-        android:name="android.example.tutorable.ui.appointments.AppointmentsFragment"
+        android:name="android.example.tutorable.ui.tutor.TutorRegistrationFragment"
         android:label="Tutor Registration"
         tools:layout="@layout/fragment_tutor_registration" />
 </navigation>
