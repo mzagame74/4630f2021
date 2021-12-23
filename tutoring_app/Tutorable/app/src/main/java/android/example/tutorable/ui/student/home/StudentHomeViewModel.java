@@ -1,14 +1,14 @@
-package android.example.tutorable.ui.home;
+package android.example.tutorable.ui.student.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class StudentHomeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public StudentHomeViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is the home fragment");
     }

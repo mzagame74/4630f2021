@@ -1,4 +1,4 @@
-package android.example.tutorable.ui.appointments;
+package android.example.tutorable.ui.student.appointments;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.example.tutorable.R;
-import android.example.tutorable.databinding.FragmentAppointmentsBinding;
+import android.example.tutorable.databinding.FragmentStudentAppointmentsBinding;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -32,10 +32,10 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
-public class AppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class StudentAppointmentsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    private AppointmentsViewModel appointmentsViewModel;
-    private FragmentAppointmentsBinding binding;
+    private StudentAppointmentsViewModel studentAppointmentsViewModel;
+    private FragmentStudentAppointmentsBinding binding;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Spinner subjectSpinner, courseSpinner;
     private TextView latTextView, lonTextView;
@@ -43,10 +43,10 @@ public class AppointmentsFragment extends Fragment implements AdapterView.OnItem
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        appointmentsViewModel =
-                new ViewModelProvider(this).get(AppointmentsViewModel.class);
+        studentAppointmentsViewModel =
+                new ViewModelProvider(this).get(StudentAppointmentsViewModel.class);
 
-        binding = FragmentAppointmentsBinding.inflate(inflater, container, false);
+        binding = FragmentStudentAppointmentsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         subjectSpinner = (Spinner) root.findViewById(R.id.spinner_subject);

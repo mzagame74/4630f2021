@@ -1,8 +1,7 @@
-package android.example.tutorable.ui.home;
+package android.example.tutorable.ui.student.home;
 
 import android.example.tutorable.FragmentNavigation;
-import android.example.tutorable.ui.appointments.AppointmentsFragment;
-import android.example.tutorable.ui.login.LoginFragment;
+import android.example.tutorable.databinding.FragmentStudentHomeBinding;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,29 +12,24 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.example.tutorable.R;
-import android.example.tutorable.databinding.FragmentHomeBinding;
+public class StudentHomeFragment extends Fragment {
 
-import com.google.firebase.auth.FirebaseAuth;
-
-public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+    private StudentHomeViewModel studentHomeViewModel;
+    private FragmentStudentHomeBinding binding;
     private FragmentNavigation fragmentNavigation;
     private Button lookForAppointmentsButton;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        studentHomeViewModel =
+                new ViewModelProvider(this).get(StudentHomeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentStudentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         fragmentNavigation = (FragmentNavigation) requireActivity();
 
         //final TextView textView = binding.textHome;
-        /*homeViewModel.getText().observe(getViewLifecycleOwner(),
+        /*studentHomeViewModel.getText().observe(getViewLifecycleOwner(),
                 new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

@@ -1,14 +1,14 @@
-package android.example.tutorable.ui.settings;
+package android.example.tutorable.ui.student.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SettingsViewModel extends ViewModel {
+public class StudentSettingsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SettingsViewModel() {
+    public StudentSettingsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is the settings fragment");
     }

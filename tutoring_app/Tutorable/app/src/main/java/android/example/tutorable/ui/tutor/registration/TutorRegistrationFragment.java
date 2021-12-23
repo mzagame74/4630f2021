@@ -1,4 +1,4 @@
-package android.example.tutorable.ui.tutor;
+package android.example.tutorable.ui.tutor.registration;
 
 import androidx.lifecycle.ViewModelProvider;
 

@@ -1,0 +1,37 @@
+package android.example.tutorable.ui.tutor.appointments;
+
+import androidx.lifecycle.ViewModelProvider;
+
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.example.tutorable.R;
+
+public class TutorAppointmentsFragment extends Fragment {
+
+    private TutorAppointmentsViewModel mViewModel;
+
+    public static TutorAppointmentsFragment newInstance() {
+        return new TutorAppointmentsFragment();
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_tutor_appointments, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(TutorAppointmentsViewModel.class);
+        // TODO: Use the ViewModel
+    }
+
+}

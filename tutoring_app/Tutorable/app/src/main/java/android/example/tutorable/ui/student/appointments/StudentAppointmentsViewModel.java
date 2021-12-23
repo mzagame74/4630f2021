@@ -1,4 +1,4 @@
-package android.example.tutorable.ui.appointments;
+package android.example.tutorable.ui.student.appointments;
 
 import android.example.tutorable.Appointment;
 
@@ -7,12 +7,12 @@ import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AppointmentsViewModel extends ViewModel {
+public class StudentAppointmentsViewModel extends ViewModel {
     //private MutableLiveData<String> mText;
     private ArrayList<Appointment> appointments;
     private final int MAX_APPOINTMENTS = 10;        // 10 appointments max
 
-    public AppointmentsViewModel() {
+    public StudentAppointmentsViewModel() {
         appointments = new ArrayList<Appointment>(MAX_APPOINTMENTS);
         appointments.add(new Appointment("John Mathers", "Math", "Calculus I",
                 "Olsen Hall", 3, new Date(2021, 12, 7, 15, 0)));

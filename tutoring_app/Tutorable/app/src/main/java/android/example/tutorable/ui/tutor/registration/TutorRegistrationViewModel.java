@@ -1,9 +1,4 @@
-package android.example.tutorable.ui.tutor;
-
-import android.example.tutorable.Appointment;
-
-import java.util.ArrayList;
-import java.util.Date;
+package android.example.tutorable.ui.tutor.registration;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
