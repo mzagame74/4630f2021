@@ -38,6 +38,17 @@
     <string name="header_settings">Settings</string>
     <string name="action_set_availability">Set Availability</string>
 
+    <string name="header_set_availability">Set Availability</string>
+    <string name="header_date">Date</string>
+    <string name="header_time">Time</string>
+    <string name="header_location">Location</string>
+    <string name="prompt_location">Location</string>
+    <string name="radio_appointment">Appointment</string>
+    <string name="radio_drop_in">Drop-in</string>
+    <string name="radio_virtual">Virtual</string>
+    <string name="header_type">Type</string>
+    <string name="button_confirm">Confirm</string>
+
     <string name="header_user_info">User Information</string>
     <string name="spinner_school">School:</string>
     <string name="action_save_settings">Save</string>
